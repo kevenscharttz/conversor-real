@@ -40,9 +40,9 @@ form.onsubmit = (event) => {
 
 //convertendo a moeda
 function convertCurrency(amount, price, symbol) {
-    const convertedAmount = amount * price;
+    const convertedAmount = (amount * price).toFixed(2);
+    
     //tenta aplicar a classe que deixa o footer visivel e modificar seu resultado convertido
-
     try {
         description.textContent = `${symbol} 1 = R$ ${price}`
         result.textContent = `${convertedAmount} Reais`

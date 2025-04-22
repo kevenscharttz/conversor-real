@@ -13,7 +13,7 @@ const result = document.getElementById("result");
 
 //manipulando o input para que seja aceito apenas números
 amount.addEventListener("input", () => {
-    regexCaractersLetters = /\D+/g;
+    const regexCaractersLetters = /\D+/g;
     const amountValue = amount.value.replace(regexCaractersLetters, "");
 })
 
@@ -42,7 +42,7 @@ form.onsubmit = (event) => {
 function convertCurrency(amount, price, symbol) {
     const convertedAmount = amount * price;
     //tenta aplicar a classe que deixa o footer visivel e modificar seu resultado convertido
-    
+
     try {
         description.textContent = `${symbol} 1 = R$ ${price}`
         result.textContent = `${convertedAmount} Reais`

@@ -41,15 +41,22 @@ form.onsubmit = (event) => {
 //convertendo a moeda
 function convertCurrency(amount, price, symbol) {
     const convertedAmount = (amount * price).toFixed(2);
-    
+
     //tenta aplicar a classe que deixa o footer visivel e modificar seu resultado convertido
     try {
-        description.textContent = `${symbol} 1 = R$ ${price}`
+        description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
         result.textContent = `${convertedAmount} Reais`
         footer.classList.add("show-result");
     } catch (error) {
         console.log(error);
         footer.classList.remove("show-result");
         alert("Não foi possível converter, tente novamente em outro momento")
+    }
+
+    function formatCurrencyBRL (value) {
+        return Number(value).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })
     }
 }

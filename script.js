@@ -4,8 +4,16 @@ const currency = document.getElementById("currency");
 
 
 amount.addEventListener("input", () => {
-
     regexCaractersLetters = /\D+/g;
-    value = amount.value.replace(regexCaractersLetters, "");
-    console.log(value);
+    const amountValue = amount.value.replace(regexCaractersLetters, "");
+    console.log(amountValue);
 })
+
+currency.addEventListener("input", (event) =>{
+    const currencyValue = currency.value
+    console.log(currencyValue);
+})
+
+form.onsubmit = (event) => {
+    event.preventDefault();
+}
